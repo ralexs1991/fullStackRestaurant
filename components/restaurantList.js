@@ -58,7 +58,8 @@ if(searchQuery.length > 0){
           top={true}
           style={{ height: 200 }}
           src={
-          `NEXT_PUBLIC_API_URL`+ res.image.url
+          process.env.NODE_ENV === "production"
+          ? res.image.url : `${process.env.NEXT_PUBLIC_API_URL}${res.image.url}`
           }
         />
         <CardBody>
